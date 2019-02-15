@@ -127,6 +127,72 @@ $ export OS_IDENTITY_API_VERSION=3
 
 Replace ADMIN_PASS with the password used in the keystone-manage bootstrap command in keystone-install-configure-ubuntu.
 
+### Create a domain, projects, users, and roles
+
+
+```shell
+openstack domain create --description "An Example Domain" example
+openstack project create --domain default   --description "Service Project" service
+openstack project create --domain default   --description "Demo Project" demo
+openstack user create --domain default   --password-prompt demo
+# 输入密码
+```
+
+
+```shell
+openstack role create user
+openstack role add --project demo --user demo user
+```
+
+### Verify operation
+
+```shell
+unset OS_AUTH_URL OS_PASSWORD
+openstack --os-auth-url http://controller:5000/v3   --os-project-domain-name Default --os-user-domain-name Default   --os-project-name admin --os-username admin token issue
+# 输入密码
+```
+
+```shell
+openstack --os-auth-url http://controller:5000/v3   --os-project-domain-name Default --os-user-domain-name Default   --os-project-name demo --os-username demo token issue
+# 输入密码
+```
+### Create OpenStack client environment scripts
+
+#### Creating the scripts
+
+Create and edit the admin-openrc file and add the following content:
+
+```text
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=ADMIN_PASS
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+```
+
+Create and edit the demo-openrc file and add the following content:
+
+```text
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=demo
+export OS_USERNAME=demo
+export OS_PASSWORD=DEMO_PASS
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+```
+
+#### Using the scripts
+
+```shell
+. demo-openrc 
+openstack token issue 
+```
+
 ## ref
 - https://docs.openstack.org/keystone/queens/install/keystone-install-ubuntu.html
 

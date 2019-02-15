@@ -1,0 +1,17 @@
+checklink.sh
+finalize-install.sh
+get-normal-state-storage-ip.sh
+region-1-zone-1-ips.txt
+region-1-zone-2-ips.txt
+region-1-zone-3-ips.txt
+region-ips.txt
+region-normal-state-ips.txt
+ring-builder-multy.sh
+ring-builder.sh
+ring-create.sh
+ring-rebalance.sh
+ring-remove.sh
+ring-scp.sh
+scp-files-from-proxy-to-storage-node-prepare-files.sh
+scp-files-from-proxy-to-storage-node.sh
+storage-node-setup.sh

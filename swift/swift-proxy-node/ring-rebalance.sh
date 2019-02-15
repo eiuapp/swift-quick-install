@@ -13,9 +13,3 @@ swift-ring-builder object.builder
 swift-ring-builder container.builder
 swift-ring-builder account.builder 
 
-## mount disk
-if [ ! -d "/tmp/storage-node/swift/" ]; then
-    mkdir -p /tmp/storage-node/swift/
-fi
-cp /etc/swift/*.ring.gz /tmp/storage-node/swift/
-
