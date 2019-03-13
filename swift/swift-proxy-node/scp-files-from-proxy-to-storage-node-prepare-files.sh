@@ -48,3 +48,9 @@ if [ ! -f "/etc/swift/storage-node/prerequisites.sh" ]; then
     echo "/etc/swift/storage-node/prerequisites.sh 不存在，请到某个 storage node 中复制一份过来"
 fi
 cp /etc/swift/storage-node/prerequisites.sh /tmp/storage-node/prerequisites.sh
+
+## fix-storage-node.sh
+if [ ! -f "/etc/swift/storage-node/fix-storage-node.sh" ]; then
+    echo "/etc/swift/storage-node/fix-storage-node.sh 不存在，请到某个 storage node 中复制一份过来"
+fi
+cp /etc/swift/storage-node/fix-storage-node.sh /tmp/storage-node/fix-storage-node.sh

@@ -26,3 +26,5 @@ cp /tmp/storage-node/authorized_keys /home/admin/.ssh/
 chmod 644 /home/admin/.ssh/authorized_keys
 chown -R admin:admin /home/admin/.ssh/
 
+echo "admin ALL = (root) NOPASSWD:ALL"  >> /etc/sudoers.d/admin
+sudo chmod 0440 /etc/sudoers.d/admin
