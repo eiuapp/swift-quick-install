@@ -10,7 +10,7 @@ IP=$1
 port=$2 
 
 # IP="192.168.11.116"
-port=22
+# port=22
 RATE=`ping -c 4 -w 3 $IP | grep 'packet loss' | grep -v grep | awk -F',' '{print $3}' | awk -F'%' '{print $1}'`     #得到丢包的比例的数值 
 #RATE=`ping -c 4 -w 3 $IP | grep 'packet loss' | grep -v grep | cut -f3 -d, | cut -f1 -d%` 
 
